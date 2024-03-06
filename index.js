@@ -102,6 +102,8 @@ const displayCard = allPostData => {
 
 
     })
+    // loding ---
+    toggleloading(false);
 }
 
 document.getElementById('search-btn').addEventListener('click', function () {
@@ -114,8 +116,12 @@ document.getElementById('search-btn').addEventListener('click', function () {
 // loaing------------------
 const toggleloading = (isLoading)=>{
     const loading =document.getElementById('loading');
+    
     if(isLoading){
         loading.classList.remove('hidden');
+    }
+    else{
+        loading.classList.add('hidden');
     }
 }
 
