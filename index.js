@@ -6,7 +6,7 @@ const fetchCategories = async (searchText) => {
     allPostData = data.posts;
     console.log(allPostData);
     displayCard(allPostData);
-    
+
 
 }
 
@@ -14,7 +14,7 @@ const fetchCategories = async (searchText) => {
 
 const lastData = document.getElementById(`lastData`);
 const loadData = async () => {
-    
+
     const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/latest-posts`);
     const data = await res.json();
     console.log(data);
@@ -55,6 +55,7 @@ const displaydata = data => {
 
 
 const displayCard = allPostData => {
+
     const LetsApi = document.getElementById('LetsApi');
     LetsApi.innerHTML = ``;
     allPostData.forEach(post => {
@@ -98,12 +99,18 @@ const displayCard = allPostData => {
         </div>
     </div>
     `;
+
         LetsApi.appendChild(postCard);
 
 
     })
     // loding ---
-    toggleloading(false);
+    setTimeout(function () {
+        toggleloading(false);
+
+    }, 2000)
+
+
 }
 
 document.getElementById('search-btn').addEventListener('click', function () {
@@ -111,16 +118,18 @@ document.getElementById('search-btn').addEventListener('click', function () {
     const searchField = document.getElementById('search');
     const searchText = searchField.value;
     fetchCategories(searchText);
+
 })
 
 // loaing------------------
-const toggleloading = (isLoading)=>{
-    const loading =document.getElementById('loading');
-    
-    if(isLoading){
+const toggleloading = (isLoading) => {
+    const loading = document.getElementById('loading');
+
+    if (isLoading) {
         loading.classList.remove('hidden');
+
     }
-    else{
+    else {
         loading.classList.add('hidden');
     }
 }
