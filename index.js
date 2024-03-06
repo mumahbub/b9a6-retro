@@ -6,6 +6,7 @@ const fetchCategories = async (searchText) => {
     allPostData = data.posts;
     console.log(allPostData);
     displayCard(allPostData);
+    
 
 }
 
@@ -13,6 +14,7 @@ const fetchCategories = async (searchText) => {
 
 const lastData = document.getElementById(`lastData`);
 const loadData = async () => {
+    
     const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/latest-posts`);
     const data = await res.json();
     console.log(data);
@@ -103,10 +105,19 @@ const displayCard = allPostData => {
 }
 
 document.getElementById('search-btn').addEventListener('click', function () {
+    toggleloading(true);
     const searchField = document.getElementById('search');
     const searchText = searchField.value;
     fetchCategories(searchText);
 })
+
+// loaing------------------
+const toggleloading = (isLoading)=>{
+    const loading =document.getElementById('loading');
+    if(isLoading){
+        loading.classList.remove('hidden');
+    }
+}
 
 // ----------click---------------------------
 btn = document.getElementById('LetsApi').addEventListener('click', function (e) {
