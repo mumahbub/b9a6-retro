@@ -30,7 +30,8 @@ const displaydata = data => {
         <figure><img src="${data.cover_image}"
         alt="Shoes" /></figure>
 <div class="card-body">
-    <p class="flex gap-4"><img src="images/5.png" alt="">29 January 2024</p>
+    <p class="flex gap-4"><img src="images/5.png" alt="">${data.author.posted_date
+            }</p>
     <h2 class="card-title font-bold">${data.title}
     </h2>
     <p>${data.description}</p>
@@ -82,11 +83,11 @@ const displayCard = allPostData => {
             <div class="flex gap-5">
                 <span class="flex gap-2">
                     <img src="images/Vector.png" alt="">
-                    <p>560</p>
+                    <p>${post.comment_count}</p>
                 </span>
                 <span class="flex gap-2">
                     <img src="images/tabler-icon-eye.png" alt="">
-                    <p>1,800</p>
+                    <p>${post.view_count}</p>
                 </span>
                 <span class="flex gap-2">
                     <img src="images/tabler-icon-clock-hour-9.png" alt="">
